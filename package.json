@@ -1,0 +1,37 @@
+{
+  "name": "webglass",
+  "version": "0.1.0",
+  "description": "WebGlass - navegador minimalista com estilo Glass e ferramentas para devs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "npx playwright install --with-deps",
+    "dist": "electron-builder --publish never",
+    "dist:linux": "electron-builder --linux --publish never",
+    "dist:win": "electron-builder --win --publish never"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.43.0",
+    "puppeteer-core": "^21.11.0"
+  },
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.6.0"
+  },
+  "build": {
+    "appId": "com.webglass.app",
+    "productName": "WebGlass",
+    "files": ["**/*"],
+    "directories": {"buildResources": "build"},
+    "linux": {
+      "target": ["AppImage"],
+      "category": "Network"
+    },
+    "win": {
+      "target": ["nsis"],
+      "publisherName": "WebGlass"
+    }
+  }
+}
